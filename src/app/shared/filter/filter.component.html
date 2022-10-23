@@ -1,0 +1,104 @@
+<div class=" rounded-4 p-2" style="background-color:white ;">
+<h5 class="h5 text-center col-12" style="color: black;">Filter</h5>
+<form class="col-12 d-flex  flex-wrap "
+        [formGroup]="forma"
+        (ngSubmit)="filtrar()">
+    <div class="col-12 p-1  "
+           
+            style="display: flex; align-items: center; justify-content: center;">
+      <div class="col-12">
+        <div class="form-control d-flex rounded-pill border-1" >
+            <label class="DocSearch-MagnifierLabel buscar col-1" style="cursor: pointer;" for="search" id="docsearch-label">
+                <svg id="lupa" style="color: rgb(170, 17, 240); " viewBox="0 0 20 20">
+                    <path d="M14.386 14.386l4.0877 4.0877-4.0877-4.0877c-2.9418 2.9419-7.7115 2.9419-10.6533 0-2.9419-2.9418-2.9419-7.7115 0-10.6533 2.9418-2.9419 7.7115-2.9419 10.6533 0 2.9419 2.9418 2.9419 7.7115 0 10.6533z" stroke="currentColor" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+                    </path>
+                </svg>
+            </label> 
+        <input  class="col-11 " 
+                id="search" 
+                style="border: none; outline:none;" 
+                aria-autocomplete="both" 
+                aria-labelledby="docsearch-label" 
+                autocomplete="off" 
+                autocorrect="off" 
+                autocapitalize="off" 
+                placeholder="search name" maxlength="64" type="search"
+                formControlName="name"> 
+       </div>
+      </div>
+    </div>
+    <div class="col-12 p-1 " *ngIf="currentRoute==='/characters'">
+        <div class="form-check col-12">
+            <input class="form-check-input" 
+                   type="checkbox" id="status"
+                   formControlName="statusch"
+                   >
+            <label class="form-check-label" for="status">Status</label>
+        </div>
+        <div class="col-12" *ngIf="forma.value?.statusch">
+           <select name=""
+                    id="stateCharacter"
+                    class="form-control form-select"
+                    formControlName="statusCharacter">
+            <option *ngFor="let status of statusCharacter"  [value]="status.codigo">{{status.status}}</option>
+           </select>
+        </div>
+    </div>
+    <div class="col-12 p-1 " *ngIf="currentRoute==='/characters' || currentRoute==='/location'">
+        <div class="form-check col-12">
+            <input class="form-check-input" type="checkbox" id="type" 
+            formControlName="typ">
+            <label class="form-check-label" for="type">Type</label>
+        </div>
+        <div class="col-12" *ngIf="forma.value?.typ">
+            <input type="text" class="form-control"
+            placeholder="Search type"
+            formControlName="type"
+            >
+        </div>
+
+    </div>
+    <div class="col-12 p-1 " *ngIf="currentRoute==='/characters'">
+        <div class="form-check col-12">
+            <label class="form-check-label" for="gender">Gender</label>
+            <input class="form-check-input" type="checkbox" id="gender"
+            formControlName="genderch">
+        </div>
+        <div class="col-12" *ngIf="forma.value?.genderch">
+           <select name=""
+                    id="stateCharacter"
+                    class="form-control form-select"
+                    formControlName="genderCharacter">
+            <option *ngFor="let gender of genderCharacter" [value]="gender.codigo">{{gender.gender}}</option>
+           </select>
+        </div>               
+    </div>
+    <div class="col-12 p-1 " *ngIf="currentRoute==='/location'" >
+        <div class="form-check col-12">
+            <input class="form-check-input" type="checkbox" id="dimension" 
+            formControlName="dimension">
+            <label class="form-check-label" for="dimension">Dimension</label>
+        </div>
+        <div class="col-12" *ngIf="forma.value?.dimension">
+            <input type="text" class="form-control"
+            placeholder="Search dimension"
+            formControlName="dimensionLo"
+            >
+        </div>
+    </div>
+    <div class="col-12 p-1 " *ngIf="currentRoute==='/episodes'">
+        <div class="form-check col-12">
+            <input class="form-check-input" type="checkbox" id="episode" 
+            formControlName="episode">
+            <label class="form-check-label" for="episode">Episode</label>
+        </div>
+        <div class="col-12" *ngIf="forma.value?.episode">
+            <input type="number" min="1" class="form-control"
+            placeholder="Search episode"
+            formControlName="episodeEp"
+            >
+        </div>
+    </div>
+    <button type="submit" class="btn btn-search">search</button>
+</form> 
+</div>
