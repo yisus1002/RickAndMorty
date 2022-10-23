@@ -1,0 +1,24 @@
+<div class="container-fluid d-flex flex-column px-0" style="margin-top: -.6rem">
+    <div style="height: 400px; background-color: rgb(23, 21, 21); position: relative;" class="d-flex m-0">
+        <div class="text">Rick and Morty</div>
+    </div>
+    <div class="row  my-3 shadow" >
+        <button type="button" (click)="navegar('characters')" class="btn btn-primary plus shadow">
+            <svg style="width:24px;height:24px; color: white;" viewBox="0 0 24 24">
+                <path fill="currentColor" d="M20 14H14V20H10V14H4V10H10V4H14V10H20V14Z" />
+            </svg>
+        </button>
+        <h5 class="h5" style="color: white;">Favorite characters</h5>
+        <p class="text-center" style="color: white;">You don't have favorites yet</p>
+    </div>
+    <div class="row my-3 shadow">
+        <button type="button" (click)="navegar('episodes')" class="btn btn-primary plus shadow">
+            <svg style="width:24px;height:24px;color: white;" viewBox="0 0 24 24">
+                <path fill="currentColor" d="M20 14H14V20H10V14H4V10H10V4H14V10H20V14Z" />
+            </svg>
+        </button>
+        <h5 class="h5" style="color: white;">favorite episodes</h5>
+        <p class="text-center" style="color: white;">You don't have favorites yet</p>
+
+    </div>
+</div>
