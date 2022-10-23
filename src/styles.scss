@@ -1,1 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap');
+
+body{
+    font-family: 'Nunito Sans', sans-serif;   
+    background: rgb(100,33,199);
+    // background: ;
+    background:no-repeat linear-gradient(90deg, rgba(100,33,199,1) 0%, rgba(99,9,121,1) 50%, rgba(255,0,155,1) 100%);
+    min-height: 100vh;
+    // background-image: radial-gradient(circle at -20.44% 43.84%, #c254f5 0, #bc53f2 50%, #b652ef 100%);
+    // color: white;
+    object-fit: cover;
+}
+.btn-search{
+    color: white;
+    background-color: rgb(42, 237, 35);
+    margin: 0 auto;
+    font-weight: 600;
+    transition: .5s ;
+}
+.btn-search:hover{
+    // color: black;
+    transition: .5s ;
+    background-color: black;
+}
