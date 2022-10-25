@@ -1,1 +1,23 @@
-<p>character works!</p>
+<!-- style="width: 13rem;" -->
+<div class="card shadow" > 
+    <div class="dropdown">
+        <button  class="btn btn-sm border-0 position-absolute " style="background-color: rgba(239, 239, 239, 0.257);" data-bs-toggle="dropdown" aria-expanded="false">
+            <i  class=" fas fa-ellipsis-v" style="color: red;"></i>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-dark text-center"  aria-labelledby="dropdownMenuButton1"> 
+          <li><button (click)="wathCharact()" type="button" class="dropdown-item  border-0 btn-success" ><i  class="fa text-info fa-eye   fa-beat"></i> Ver</button></li>
+          <li><button  (click)="agregar()" type="button" *ngIf="opcionAgregar" class="dropdown-item  border-0 btn-danger" ><i  class="fa text-success fa-plus"></i> Agregar</button></li>
+          <li><button  (click)="deleteCh()" type="button" *ngIf="opcionEliminar" class="dropdown-item border-0  btn-danger" ><i  class="fa text-danger fa-trash fa-beat"></i> Eliminar</button></li>
+        </ul>
+    </div>
+    <img [src]="items?.image" class="card-img-top" [alt]="items?.name">
+    <div class="card-body">
+      <h5 class="card-title" style="text-transform: capitalize;">{{items?.name}}</h5>
+      <div class="card-text d-flex  flex-wrap align-items-center justify-content-center">
+        <p class="h5 mx-1"><span class="badge text-wrap text-bg-primary" >Status: {{items?.status}}</span></p>
+        <p class="h5 mx-1"><span class="badge text-wrap text-bg-success" >Species: {{items?.species}}</span></p>
+        <p class="h5 mx-1"><span class="badge text-wrap text-bg-danger" >Type: {{items?.type}}</span></p>
+        <p class="h5 mx-1"><span class="badge text-wrap text-bg-morado" >Gender: {{items?.gender}}</span></p>
+      </div>
+    </div>
+  </div>
