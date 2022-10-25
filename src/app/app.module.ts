@@ -11,6 +11,15 @@ import { CharacterComponent } from './shared/character/character.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FilterComponent } from './shared/filter/filter.component';
 
+
+import { HttpClientModule} from "@angular/common/http"
+import { GraphQLModule } from './graphql.module';
+
+
+//Pagination module
+import { NgxPaginationModule } from 'ngx-pagination';
+import { LoadingComponent } from './shared/loading/loading.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,14 +28,17 @@ import { FilterComponent } from './shared/filter/filter.component';
     CharactersComponent,
     EpisodesComponent,
     CharacterComponent,
-    FilterComponent
+    FilterComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    // HttpClientModule,
+    HttpClientModule,
+    GraphQLModule,
+    NgxPaginationModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
