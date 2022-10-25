@@ -23,3 +23,64 @@ body{
     transition: .5s ;
     background-color: black;
 }
+@media screen and (max-width: 647px) {
+    .sm-position-fixed{
+        position: relative !important;
+        /* z-index: 2; */
+    }
+    .dnone{
+        display: none!important;
+    }
+    .col12{
+        width: 100%!important;
+    }
+    }
+
+    @media screen and (min-width: 647px) {
+
+        .dnone-sm{
+            display: none!important;
+        }
+       
+    }
+    @media screen and (min-width: 767px){
+        // .show{
+            
+        //     display: block!important;
+        //     animation: none!important;
+        // }
+        // .collapse{
+        //     display: block!important;
+        //     animation: none!important;
+        // }
+        .collapsing{
+            height: auto!important;
+
+        }
+    }
+
+    //  ::ng-deep.ngx-pagination {
+    //     padding-left: 0px !important;
+    //     background-color: white!important;
+    //     padding: 3px;
+    //     border-radius: 6px;
+    // }
+    // ::ng-deep  .ngx-pagination .current, .btn-info {
+    //     background: #17a2b8 !important;
+    //     border: transparent !important;
+    //     border-radius: 20px !important;
+    // }
+    
+    // ::ng-deep .ngx-pagination .current:hover {
+    //     transition: all .5s;
+    //     background: #b812d2 !important;
+    //     border-radius: 20px !important; 
+    //     border: transparent !important;
+    //     color: white!important;
+    // }
+    // ::ng-deep .navigation >li{
+    //     transition: all .5s;
+    //     color: white!important;
+    //     background: #b812d2 !important;
+    //     border-radius: 20px !important; 
+    // }
