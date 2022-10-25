@@ -1,11 +1,38 @@
 <div class="container-fuid px-1">
     <h4 class="text-center " style="color: white;" >Characters</h4>
+    <!-- Button trigger modal -->
+
+<button type="button" class="btn btn-primary dnone-sm mb-1 mx-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    Filter
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content"> 
+        <button type="button" class="btn-close" style="position: absolute; top: 0px; right: 0px; z-index: 5;" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="modal-body pt-0">
+            <app-filter class="" style="z-index: 4;" (formOutput)="Buscar($event)" [currentRoute]="characters"></app-filter>
+        </div>
+      </div>
+    </div>
+  </div>
     <div class="d-flex">
-        <div class="col-3  shadow-lg p-1 rounded-4" style=" position: relative;">
-           <app-filter (formOutput)="Buscar($event)" [currentRoute]="characters"></app-filter>
+        
+        <div class="col-3 col-sm-3 col-md-3 col-lg-2 dnone" style=" position: relative!important;">
+           <app-filter class="col-3 col-sm-3 col-md-3 col-lg-2 sm-position-fixed position-fixed" style="z-index: 4;" (formOutput)="Buscar($event)" [currentRoute]="characters"></app-filter>
         </div>
-        <div class="col-9 px-2 pt-0 borde">
-            <!-- wfwwdsd -->
+        <div class="col-9 col-sm-9 col-md-9 col-lg-10 col12 px-2 pt-0 borde"> 
+          <app-loading *ngIf="loading"></app-loading>
+            <div *ngIf="card" class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 pb-1 g-1">
+                <app-character [opcionAgregar]="true" [items]="list?.results[i]" [index]="list?.results[i]?.id" *ngFor="let items of list?.results | paginate:{ itemsPerPage:20, currentPage: p,  totalItems: total};let i = index" ></app-character>
+            </div>
         </div>
+    </div>
+    <div class="d-flex col-12" style="align-items: center; justify-content: center;">
+        
+    <pagination-controls *ngIf="total>0 && card" class="pt-1 pb-0 d-flex" style="background-color: white; border-radius: 8px; align-items: center; justify-content: center;"
+    (pageChange)="pageChangeEvent($event)">
+    </pagination-controls>
     </div>
 </div>
