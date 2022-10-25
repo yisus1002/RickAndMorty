@@ -9,7 +9,10 @@
             </svg>
         </button>
         <h5 class="h5" style="color: white;">Favorite characters</h5>
-        <p class="text-center" style="color: white;">You don't have favorites yet</p>
+        <p *ngIf="!favoriteCharacter" class="text-center" style="color: white;">You don't have favorites yet</p>
+        <div *ngIf="favoriteCharacter" class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-6 row-cols-xl-7 pb-1 g-1">
+            <app-character [opcionEliminar]="true" [items]="favoriteCharacter[i]" [index]="favoriteCharacter[i]?.id" *ngFor="let items of favoriteCharacter ;let i = index" ></app-character>
+        </div>
     </div>
     <div class="row my-3 shadow">
         <button type="button" (click)="navegar('episodes')" class="btn btn-primary plus shadow">
