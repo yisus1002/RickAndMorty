@@ -46,4 +46,37 @@ export class CharactersService {
     const url =`${this.api}${id}`
     return this.http.get(url) 
   }
+
+  listCharacterById(chId:number, loId:any, epIds:any[]):Observable<any>{  
+    let aux =epIds.toString();
+    return this.apollo.query({
+      query: gql`query {
+        character(id: ${chId}) {
+          id,
+          name,
+          status,
+          species,
+          type,
+          gender,
+          image,
+          origin{
+            name
+          }
+        }
+        location(id:"${loId}"){
+          name,
+          type,
+          dimension,
+          id,
+        }
+        episodesByIds(ids:[${aux}]){
+          id,
+          name,
+          air_date,
+          episode
+        }
+      }`
+    }
+    ).pipe(map((data:any)=>data['data']))
+  }
 }
