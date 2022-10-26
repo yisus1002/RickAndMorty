@@ -1,3 +1,4 @@
+import { CharacterDetalleComponent } from './pages/character-detalle/character-detalle.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -29,7 +30,8 @@ import { LoadingComponent } from './shared/loading/loading.component';
     EpisodesComponent,
     CharacterComponent,
     FilterComponent,
-    LoadingComponent
+    LoadingComponent,
+    CharacterDetalleComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,18 @@
+.btn-back{
+    border-radius: 50%;
+    height: 40px!important;
+    width: 40px!important;
+    transition: .5s ease-in;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.btn-back:hover{
+    background-color: black!important;
+    transition: .5s ease-in;
+}
+
+.shadows{
+    -webkit-box-shadow: -2px 5px 22px 9px rgba(0,0,0,0.22); 
+    box-shadow: -2px 5px 22px 9px rgba(0,0,0,0.22);
+}

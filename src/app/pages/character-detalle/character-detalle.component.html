@@ -1,0 +1,44 @@
+<button type="button" (click)="back()" class="btn btn-sm ms-2 btn-primary btn-back shadow" ><svg style="width:24px;height:24px" viewBox="0 0 24 24">
+  <path fill="currentColor" d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" />
+  </svg>
+</button>
+
+<app-loading *ngIf="loading"></app-loading>
+<!-- <div class=""> -->
+  <p *ngIf="!loading && !show" class="text-center h1" style="color: #ffff;">Character not found</p>
+
+
+<div *ngIf="!loading && show===true" class="container p-2">
+
+    <h4 class="h3 text-center " style="color: #ffff; font-weight: 600;">{{character?.character?.name}}</h4>
+   <div class=" p-1  col-sm-12  col-md-10 d-sm-flex shadows rounded-3" style="align-items: center; justify-content: center; margin: 0 auto;">
+    <img [src]="character?.character?.image"  class="d-flex img-thumbnail " style="margin: 0 auto;"  [alt]="character?.character?.name">
+   <div class="mx-2 card-body" style="color: #ffff;">
+       <p class="h5 mx-1">Status: {{character?.character?.status}}</p>
+       <p class="h5 mx-1">Species: {{character?.character?.species}}</p>
+       <p *ngIf="character?.character?.type.length>0" class="h5 mx-1">Type: {{character?.character?.type}}</p>
+       <p class="h5 mx-1">Gender: {{character?.character?.gender}}</p>
+       <p class="h5 mx-1">Origin: {{character?.character?.origin?.name}}</p>
+       <p class="h5 mx-1">Location: {{character?.location?.name}} , {{character?.location?.type}}</p>
+       <p class="h5 mx-1"></p>
+   </div>
+   </div>
+  <div class="mt-2 card-body">
+    <h5 class="text-center h4 my-2" style="color: #ffff;">Episodes</h5>
+    <!-- <div class="card" *ngFor="let item of character?.episodesByIds"> -->
+      <div class="row row-cols-3 row-cols-md-4 row-cols-lg-5 g-1">
+        <div class="col" *ngFor="let item of character?.episodesByIds">
+          <div class="card p-0">
+            <div class="card-body p-1">
+              <h5 class="card-title text-center">{{item?.name}}</h5>
+              <p class="card-text">Episode <small>{{item?.episode}}</small></p>
+            </div>
+            <div class="card-footer">
+              <small class="text-muted">{{item?.air_date}}</small>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+<!-- </div> -->
